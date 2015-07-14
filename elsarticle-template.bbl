@@ -14,4 +14,9 @@ W.~Guo, C.~D. Langevin, User's guide to seawat; a computer program for
   simulation of three-dimensional variable-density ground-water flow, Tech.
   rep. (2002).
 
+\bibitem{ackerer1999modeling}
+P.~Ackerer, A.~Younes, R.~Mose, Modeling variable density flow and solute
+  transport in porous medium: 1. numerical model and verification, Transport in
+  Porous Media 35~(3) (1999) 345--373.
+
 \end{thebibliography}
