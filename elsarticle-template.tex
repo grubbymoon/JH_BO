@@ -169,7 +169,7 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 \end{abstract}
 
 \begin{keyword}
-Seawater intrusion, Time scale, Analytical analysis
+Seawater intrusion, Timescale, Analytical analysis
 \end{keyword}
 
 \end{frontmatter}
@@ -182,21 +182,31 @@ Seawater intrusion, Time scale, Analytical analysis
 
 \subsection{Conceptual model}
 
-The conceptual model used in this study was a confined coastal aquifer with length L and thickness B which is shown is Fig. \ref{fig:seawater_intrusion}
+The conceptual model used in this study was a confined coastal aquifer with length L and thickness B which is shown is Fig. \ref{fig:seawater_intrusion}. The left boundary is coast and the right boundary is the inland aquifer. $h_\mbf{s}$ is the initial seawater level and $h_\mbf{f}$ is the initial inland freshwater head. The initial condition is regarded to be steady state. 
 \begin{figure}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/seawater_intrusion}
-\caption{Conceptual model of the seawater intrusion and retreat}
+\caption{Conceptual model of the seawater intrusion and retreat. Following the same concept of \cite{lu2013timescales}}
 \label{fig:seawater_intrusion}
 \end{figure}
 
 \subsection{Theoretical method}
+Basic assumptions \cite{guo2002user}: 
+\begin{itemize}
+\item Darcy's flow is valid.  
+\item The standard expression for specific storage in a confined aquifer is applicable.
+\item The diffusive approach to dispersive transport is based on Fick's law.
+\item Isothermal conditions prevails. 
+\item The porous medium is fully saturated with water.
+\item A single, fully miscible liquid phase of very small compressibility is taken in to account. 
+\end{itemize}
+The governing equations \cite{guo2002user}:
+
 
 \section{Result and discussion}
 
 There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
 
-Here are two sample references: \cite{Feynman1963118,Dirac1953888}.
 
 \section*{References}
 
