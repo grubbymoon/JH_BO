@@ -165,7 +165,7 @@
 %\address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-This template helps you to create a properly formatted \LaTeX\ manuscript.
+
 \end{abstract}
 
 \begin{keyword}
@@ -201,11 +201,30 @@ Basic assumptions \cite{guo2002user}:
 \item A single, fully miscible liquid phase of very small compressibility is taken in to account. 
 \end{itemize}
 The governing equations \cite{guo2002user}:
+Conversions from native aquifer water and equivalent freshwater head is in Eq. \ref{eq:h_hf} and \ref{eq:hf_h}
+\begin{equation}\label{eq:h_hf}
+h_f = \frac{\rho}{\rho_f} - \frac{\rho - \rho_f}{\rho_f}Z 
+\end{equation}
 
+\begin{equation}\label{eq:hf_h}
+h = \frac{\rho_f}{\rho} + \frac{\rho - \rho_f}{\rho}Z 
+\end{equation}
+where $h_f$ is the equivalent freshwater head, $h$ is the native aquifer water head, $\rho$ is the density of saline ground water and $\rho_f$ is the density of fresh water.
+
+The governing equation for the conservation of mass is in \ref{eq:conservation_mass}
+\begin{equation}\label{eq:conservation_mass}
+-\nabla\cdot(\rho \mbf{q}) + \bar{\rho} q_\mbf{s} = \frac{\partial(\rho\theta)}{\partial t} 
+\end{equation}
+where $\mbf{q}$ is the specific discharge vector, $\bar{\rho}$ is the density of water entering from a source or leaving through a sink, $q_\mbf{s}$ is the volumetric flow rate per unit volume of aquifer representing sources and sinks, $\theta$ is porosity and $t$ is time. \par
+
+The left hand side of Eq. \ref{eq:conservation_mass} is the net flux of mass through the REV and the right hand side is the time rate of change in the mass stored in the REV which can be expanded with the chain rule: 
+\begin{equation}\label{eq:rho_theta_t}
+\frac{\partial \rho \theta}{\partial t} = \rho \frac{\partial \theta}{\partial t} + \theta\frac{\partial \rho}{\partial t} = \rho \frac{\partial \theta}{\partial P}\frac{\partial P}{\partial t} + \theta\frac{\partial \rho}{\partial P}\frac{\partial P}{\partial t} + \theta\frac{\partial \rho}{\partial C}\frac{\partial C}{\partial t}  
+\end{equation}
+where $C$ is the solute concentration and $P$ is the fluid pore pressure. 
+ 
 
 \section{Result and discussion}
-
-There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
 
 
 \section*{References}
