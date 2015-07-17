@@ -165,11 +165,11 @@
 %\address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-
+Quantifying the timescales with moving freshwater-seawater interface is becoming more and more crucial recently. Numerical studies have revealed logarithmic timescales of SWI and SWR can be depicted by some simple linear equations. In this study, analytical analysis is developed based on Mean time action (MAT) and simliar results can be clarified.  
 \end{abstract}
 
 \begin{keyword}
-Seawater intrusion, Timescale, Analytical analysis
+Seawater intrusion, Timescale, Analytical analysis, Sharp interface
 \end{keyword}
 
 \end{frontmatter}
@@ -180,9 +180,10 @@ Seawater intrusion, Timescale, Analytical analysis
 
 \section{Methodology}
 
+
 \subsection{Conceptual model}
 
-The conceptual model used in this study was a confined coastal aquifer with length L and thickness B which is shown is Fig. \ref{fig:seawater_intrusion}. The left boundary is coast and the right boundary is the inland aquifer. $h_\mbf{s}$ is the initial seawater level and $h_\mbf{f}$ is the initial inland freshwater head. The initial condition is regarded to be steady state. 
+The conceptual model used in this study was a confined coastal aquifer with length L and thickness B which is shown is Fig. \ref{fig:seawater_intrusion}. The left boundary is the coast and the right boundary is the inland aquifer. $h_\mbf{s}$ is the initial seawater level and $h_\mbf{f}$ is the initial inland freshwater head. The initial condition is regarded to be steady state. 
 \begin{figure}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/seawater_intrusion}
@@ -190,9 +191,10 @@ The conceptual model used in this study was a confined coastal aquifer with leng
 \label{fig:seawater_intrusion}
 \end{figure}
 
-\subsection{Theoretical method}
-For this kind of problem, normally two kinds of models are introduced, miscible fluid model and immiscible fluid model \cite{volker1982assessment}. Miscible fluid model takes the mixing zone of density and viscosity into account when salt water intrudes while Immiscible fluid model assumes a line interface between fresh and salt water and in either fluid, the concentration and density are constant. 
-First Miscible model is introduced. Miscible model is widely implemented in numerical models but not appropriate for analytical analysis. \par 
+\subsection{Major approaches}
+For this kind of problem, normally two kinds of methods are introduced, miscible fluid model and immiscible fluid model \cite{volker1982assessment}. Miscible fluid model takes the mixing zone of density and viscosity into account when salt water intrudes. While Immiscible fluid model assumes a line interface between fresh and salt water and in either fluid, the concentration and density are constant. 
+Both methods are widely used in this restrict and will be decrbied in the following sections. \par 
+\subsubsection{Miscible method}
 Basic assumptions \cite{guo2002user}: 
 \begin{itemize}
 \item Darcy's flow is valid.  
@@ -227,29 +229,31 @@ Basic assumptions \cite{guo2002user}:
 The governing equations is based on \cite{ackerer1999modeling}. \\
 The mass balance equation: 
 \begin{equation}\label{eq:mass_conserv}
-\rho S\frac{\partial P}{\partial t} + \phi \frac{\partial \rho}{\partial C_\mbf{m}}\frac{C_\mbf{m}}{\partial t} + \nabla\cdot(\rho\mbf{q}) = \rho Q_\mbf{s}
+\rho S\frac{\partial P}{\partial t} + \phi \frac{\partial \rho}{\partial C_\mbf{m}}\frac{C_\mbf{m}}{\partial t} + \nabla\cdot(\rho\mbf{q}) = \rho Q_\mbf{s},
 \end{equation}
 where $S$ is the specific storativity of the porous medium, $\rho$ is the mass density of the fluid, $\mbf{q}$ is the Darcy velocity, $Q_\mbf{s}$ is the source/sink term, $\phi$ is the porosity and $C_\mbf{m}$ is the solute mass fraction. \\
 The specific storativity $S$ is defined as:
 \begin{equation}\label{eq:specific_S}
-S = \alpha (1 - \phi) + \phi \beta
+S = \alpha (1 - \phi) + \phi \beta,
 \end{equation} 
 where $\alpha$ is the coefficient of compressibility of porous medium, $\beta$ is the coefficient of compressibility of the fluid:
 \begin{equation}\label{eq:beta_alpha}
-\beta = \frac{1}{\rho}\frac{\partial \rho}{\partial P}, \qquad \alpha = \frac{1}{1 - \phi}\frac{\partial \phi}{\partial P}
+\beta = \frac{1}{\rho}\frac{\partial \rho}{\partial P}, \qquad \alpha = \frac{1}{1 - \phi}\frac{\partial \phi}{\partial P}.
 \end{equation}
 The specific discharge is defined by the generalized Darcy's law:
 \begin{equation}\label{eq:darcy_velocity}
-\mbf{q} = - \frac{1}{\mu}\mbf{k}\cdot(\nabla P + \rho g \nabla z)
+\mbf{q} = - \frac{1}{\mu}\mbf{k}\cdot(\nabla P + \rho g \nabla z),
 \end{equation}
 where $\mu$ is the dynamic viscosity of the fluid, $\mbf{k}$ is the permeability tensor and $g$ is the gravity acceleration. \\
 The solute transport equation:
 \begin{equation}
-\phi \rho \frac{\partial C_\mbf{m}}{\partial t} + \rho \mbf{q}\cdot\nabla C_\mbf{m} = \nabla\cdot(\phi \rho \mbf{D}\cdot\nabla C_\mbf{m})
+\phi \rho \frac{\partial C_\mbf{m}}{\partial t} + \rho \mbf{q}\cdot\nabla C_\mbf{m} = \nabla\cdot(\phi \rho \mbf{D}\cdot\nabla C_\mbf{m}).
 \end{equation}
 In which $\mbf{D}$ is the dispersion tensor. \par
+Due to its complexitiy, miscible model is normally implemented in numerical models with high computational cost. 
 
-While immiscible model is more simplified, several analytical solution for steady state is existed \cite{bear2010modeling}. Let the interface toe to be located at the origin x = 0 (see Fig. \ref{fig:seawater_analytical}), The seaward freshwater flow at this point is $Q_{fo}$; it is the difference between the total inflow to the aquifer through the right side boundary. We assume that the Dupuit assumption of essentially horizontal flow is valid for the freshwater domain above the interface.
+\subsubsection{Immiscible method}
+While immiscible model is much more simplified, several analytical solution for steady state is existed \cite{bear2010modeling}. Let the interface toe (point G) to be located at the origin x = 0 (see Fig. \ref{fig:seawater_analytical}), The seaward freshwater flow at this point is $Q_{fo}$. It is the difference between the total inflow to the aquifer through the right side boundary and the pumping from the coastal aquifer strip to the right of point G. We assume that the Dupuit assumption of essentially horizontal flow is valid for the freshwater domain above the interface.
 \begin{figure}
 \centering
 \includegraphics[width=1.0\textwidth]{figures/seawater_analytical}
@@ -262,17 +266,21 @@ While immiscible model is more simplified, several analytical solution for stead
 \end{equation}  
 where $\eta$ is the thickness of freshwater above the saltwater wedge. Based on the Ghy-Herzberg approximation, the freshwater head is 
 \begin{equation}\label{freshwater_head}
-h_f = \frac{\eta + b}{\delta}
+h_f = \frac{\eta + b}{\delta},
 \end{equation} 
 where $\eta = \rho_f / (\rho_s - \rho_f) $ and using the above equation in Eq. \ref{eq:interface_confined}, we can easily obtain 
 \begin{equation}\label{eq:eta_square}
-\eta^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f} L
+\eta^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f} (L - x).
 \end{equation}
 In the above, we have used the boundary condtion $\eta = 0$ at $x = L$, Eq. \ref{eq:eta_square} shows that the interface has the shape of a parabolic. Using the condition $\eta = B$ at $x = 0$, we can get
 \begin{equation}\label{eq:B_square}
-B^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f}L
+B^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f}L.
 \end{equation}
-This equation clearly indicates that the length of the seawater edge, $L$ and the discharge of freshwater to the sea. $Q_{fo}$. As $Q_{fo}$ increases, $L$ decreases.
+This equation clearly indicates the relationship between the length of the seawater edge, $L$ and the discharge of freshwater to the sea. $Q_{fo}$. As $Q_{fo}$ increases, $L$ decreases. This illustrates that the extent of seawater intrusion is controlled by the recharge and the pumpping in the coastal aquifer strip. \par
+
+\subsection{Theoretical methods}
+In this work, we will use the sharp interface method and modify the $h_f$ to make the interface from one steady state to another steady state. With this transient response to steady state, Mean action time (MAT) \cite{simpson2013long} will be implemented to find the time scale of seawater intrusion and retreat without solving the governing equaitons. 
+
 
 
 
