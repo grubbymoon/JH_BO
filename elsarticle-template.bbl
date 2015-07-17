@@ -9,6 +9,12 @@
 C.~Lu, A.~D. Werner, Timescales of seawater intrusion and retreat, Advances in
   Water Resources 59 (2013) 39--51.
 
+\bibitem{volker1982assessment}
+R.~Volker, K.~Rushton, An assessment of the importance of some parameters for
+  seawater intrusion in aquifers and a comparison of dispersive and
+  sharp-interface modelling approaches, Journal of Hydrology 56~(3) (1982)
+  239--250.
+
 \bibitem{guo2002user}
 W.~Guo, C.~D. Langevin, User's guide to seawat; a computer program for
   simulation of three-dimensional variable-density ground-water flow, Tech.
@@ -18,5 +24,9 @@ W.~Guo, C.~D. Langevin, User's guide to seawat; a computer program for
 P.~Ackerer, A.~Younes, R.~Mose, Modeling variable density flow and solute
   transport in porous medium: 1. numerical model and verification, Transport in
   Porous Media 35~(3) (1999) 345--373.
+
+\bibitem{bear2010modeling}
+J.~Bear, A.-D. Cheng, Modeling groundwater flow and contaminant transport,
+  Vol.~23, Springer Science \& Business Media, 2010.
 
 \end{thebibliography}

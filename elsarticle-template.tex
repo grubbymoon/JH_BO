@@ -191,6 +191,8 @@ The conceptual model used in this study was a confined coastal aquifer with leng
 \end{figure}
 
 \subsection{Theoretical method}
+For this kind of problem, normally two kinds of models are introduced, miscible fluid model and immiscible fluid model \cite{volker1982assessment}. Miscible fluid model takes the mixing zone of density and viscosity into account when salt water intrudes while Immiscible fluid model assumes a line interface between fresh and salt water and in either fluid, the concentration and density are constant. 
+First Miscible model is introduced. Miscible model is widely implemented in numerical models but not appropriate for analytical analysis. \par 
 Basic assumptions \cite{guo2002user}: 
 \begin{itemize}
 \item Darcy's flow is valid.  
@@ -245,7 +247,34 @@ The solute transport equation:
 \begin{equation}
 \phi \rho \frac{\partial C_\mbf{m}}{\partial t} + \rho \mbf{q}\cdot\nabla C_\mbf{m} = \nabla\cdot(\phi \rho \mbf{D}\cdot\nabla C_\mbf{m})
 \end{equation}
-In which $\mbf{D}$ is the dispersion tensor. 
+In which $\mbf{D}$ is the dispersion tensor. \par
+
+While immiscible model is more simplified, several analytical solution for steady state is existed \cite{bear2010modeling}. Let the interface toe to be located at the origin x = 0 (see Fig. \ref{fig:seawater_analytical}), The seaward freshwater flow at this point is $Q_{fo}$; it is the difference between the total inflow to the aquifer through the right side boundary. We assume that the Dupuit assumption of essentially horizontal flow is valid for the freshwater domain above the interface.
+\begin{figure}
+\centering
+\includegraphics[width=1.0\textwidth]{figures/seawater_analytical}
+\caption{Conceptual model of the sharp interface seawater intrusion}
+\label{fig:seawater_analytical}
+\end{figure}
+ 
+\begin{equation}\label{eq:interface_confined}
+- \mbf{K}_f \eta(x) \frac{dh_f(X)}{dx} = Q_{fo},
+\end{equation}  
+where $\eta$ is the thickness of freshwater above the saltwater wedge. Based on the Ghy-Herzberg approximation, the freshwater head is 
+\begin{equation}\label{freshwater_head}
+h_f = \frac{\eta + b}{\delta}
+\end{equation} 
+where $\eta = \rho_f / (\rho_s - \rho_f) $ and using the above equation in Eq. \ref{eq:interface_confined}, we can easily obtain 
+\begin{equation}\label{eq:eta_square}
+\eta^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f} L
+\end{equation}
+In the above, we have used the boundary condtion $\eta = 0$ at $x = L$, Eq. \ref{eq:eta_square} shows that the interface has the shape of a parabolic. Using the condition $\eta = B$ at $x = 0$, we can get
+\begin{equation}\label{eq:B_square}
+B^2 = \frac{2\delta Q_{fo}}{\mbf{K}_f}L
+\end{equation}
+This equation clearly indicates that the length of the seawater edge, $L$ and the discharge of freshwater to the sea. $Q_{fo}$. As $Q_{fo}$ increases, $L$ decreases.
+
+
 
 
 
